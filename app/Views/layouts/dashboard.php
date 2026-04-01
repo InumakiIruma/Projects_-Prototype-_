@@ -2,7 +2,7 @@
 <?= $this->section('content') ?>
 <div class="container mt-2">
     <p>Ini adalah Halaman Dashboard
-        <br> Wellcome to prototype Projects <b> Prototype </b>App!
+        <br> Wellcome to Projects <b> Prototype </b>App!
     </p>
 </div>
 <?= $this->endSection() ?>
