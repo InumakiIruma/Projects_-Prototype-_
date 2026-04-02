@@ -1,15 +1,39 @@
 <style>
-    /* Dropdown Menu */
+    /* USER PROFILE */
+    .nav-item.text-center img {
+        height: 55px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #f1f3f5;
+        transition: 0.2s;
+    }
+
+    .nav-item.text-center img:hover {
+        transform: scale(1.05);
+    }
+
+    .nav-item.text-center div b {
+        font-size: 13px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .nav-item.text-center div:last-child {
+        font-size: 11px;
+        color: #888;
+    }
+
+    /* DROPDOWN */
     .menu-box {
         position: absolute;
-        top: 100%;
+        top: 110%;
         left: 50%;
         transform: translateX(-50%);
-        width: 180px;
-        background: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-        padding: 8px;
+        width: 160px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+        padding: 6px;
         z-index: 1000;
     }
 
@@ -17,15 +41,40 @@
         display: flex;
         align-items: center;
         gap: 8px;
-        padding: 7px 10px;
+        padding: 6px 8px;
         text-decoration: none;
-        color: #333;
+        color: #444;
         border-radius: 6px;
-        font-size: 13px;
+        font-size: 12px;
+        transition: 0.2s;
     }
 
     .menu-box a:hover {
-        background: #f1f3f5;
+        background: #f5f7f9;
+        color: #000;
+    }
+
+    .menu-box hr {
+        margin: 6px 0;
+        opacity: 0.2;
+    }
+
+    /* NAV MENU */
+    .nav-link {
+        font-size: 13px;
+        color: #444;
+        border-radius: 6px;
+        padding: 8px 10px;
+        transition: 0.2s;
+    }
+
+    .nav-link:hover {
+        background: #f5f7f9;
+        color: #000;
+    }
+
+    .nav-link i {
+        font-size: 14px;
     }
 </style>
 

@@ -7,17 +7,23 @@ use CodeIgniter\Controller;
 
 class Auth extends Controller
 {
-    // Menampilkan halaman view/auth/login
+    // Menampilkan halaman login
     public function login()
     {
+        // Kalau sudah login, jangan balik ke login lagi
+        if (session()->get('logged_in')) {
+            return redirect()->to('/dashboard');
+        }
+
         return view('auth/login');
     }
 
-    // Memproses data login yang diinput pada halaman login
+    // Proses login
     public function prosesLogin()
     {
         $session = session();
         $usersModel = new UsersModel();
+
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
@@ -25,12 +31,14 @@ class Auth extends Controller
 
         if ($users) {
             if (password_verify($password, $users['password'])) {
+
+                // SET SESSION
                 $session->set([
-                    'id_user' => $users['id_user'],
-                    'nama' => $users['nama'],
-                    'username' => $users['username'],
-                    'role' => $users['role'],
-                    'foto' => $users['foto'],
+                    'id_user'   => $users['id_user'],
+                    'nama'      => $users['nama'],
+                    'username'  => $users['username'],
+                    'role'      => $users['role'],
+                    'foto'      => $users['foto'],
                     'logged_in' => true
                 ]);
 
@@ -45,7 +53,7 @@ class Auth extends Controller
         }
     }
 
-    // Logout (keluar dari aplikasi)
+    // Logout
     public function logout()
     {
         session()->destroy();
