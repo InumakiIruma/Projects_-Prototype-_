@@ -8,4 +8,23 @@ class Alat extends BaseController
     {
         return view('alat/index');
     }
+    public function data()
+    {
+        return view('alat/data');
+    }
+
+    public function tambah()
+    {
+        return view('alat/tambah');
+    }
+
+    public function peminjaman()
+    {
+        return view('alat/peminjaman');
+    }
+
+    public function laporan()
+    {
+        return view('alat/laporan');
+    }
 }

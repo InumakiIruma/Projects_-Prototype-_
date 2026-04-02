@@ -77,7 +77,6 @@
 
     <!-- Sidebar -->
     <div id="sidebar" class="sidebar">
-        <div class="sidebar-title">📦 Prototype</div>
         <?php include(APPPATH . 'Views/layouts/menu.php'); ?>
     </div>
 

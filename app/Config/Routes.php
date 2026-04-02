@@ -37,4 +37,20 @@ $routes->group('', ['filter' => 'auth'], function ($routes) use ($allRole) {
 
     // ================= ALAT =================
     $routes->get('/alat', 'Alat::index');
+
+    $routes->group('', ['filter' => 'auth'], function ($routes) use ($allRole) {
+
+        // Dashboard
+        $routes->get('/dashboard', 'Home::index');
+
+        // Users
+        $routes->get('/users', 'Users::index', $allRole);
+
+        // ================= ALAT =================
+        $routes->get('/alat', 'Alat::index');
+        $routes->get('/alat/data', 'Alat::data');
+        $routes->get('/alat/tambah', 'Alat::tambah');
+        $routes->get('/alat/peminjaman', 'Alat::peminjaman');
+        $routes->get('/alat/laporan', 'Alat::laporan');
+    });
 });
