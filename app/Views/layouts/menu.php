@@ -3,46 +3,134 @@
         width: 220px;
         transition: 0.3s;
         overflow: hidden;
+        padding-top: 10px;
     }
 
     .sidebar.collapsed {
         width: 70px;
     }
 
-    .sidebar.collapsed span {
-        display: none;
+    /* NAV LINK BIAR RAPI */
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
     }
 
+    .nav-link i {
+        width: 20px;
+        text-align: center;
+    }
+
+    /* COLLAPSE MODE - LEBIH KE KIRI */
     .sidebar.collapsed .nav-link {
-        justify-content: center;
+        justify-content: flex-start;
+        padding-left: 10px !important;
+        /* kecilin jarak kiri */
     }
 
+    /* ICON LEBIH NEMPEL KE KIRI */
     .sidebar.collapsed .nav-link i {
-        font-size: 18px;
+        margin-left: 0;
+        width: 20px;
+        text-align: left;
     }
 
+    /* OPTIONAL: kalau masih kurang kiri */
+    .sidebar.collapsed {
+        padding-left: 5px;
+    }
+
+    /* PAKSA SEMUA TEXT HILANG */
+    .sidebar.collapsed .nav-link span {
+        display: none !important;
+    }
+
+    .nav-link span {
+        transition: 0.2s;
+    }
+
+    .nav-link.active {
+        background: #e9f2ff;
+        color: #0d6efd;
+        border-radius: 6px;
+    }
+
+    /* JAGA JARAK BIAR GAK ANEH */
+    .sidebar.collapsed .nav-link {
+        gap: 0 !important;
+    }
+
+    /* ================= PROFILE ================= */
+
+    /* POSISI PROFILE KE KIRI ATAS */
+    .nav-item.text-center {
+        text-align: left !important;
+        padding-left: 15px !important;
+    }
+
+    /* FOTO PROFILE */
+    .nav-item.text-center img {
+        height: 40px;
+        width: 40px;
+        object-fit: cover;
+        margin-bottom: 5px;
+    }
+
+    /* TEXT PROFILE */
+    .nav-item.text-center div {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    /* SAAT COLLAPSE */
+    .sidebar.collapsed .nav-item.text-center {
+        display: flex;
+        justify-content: center;
+        padding-left: 0 !important;
+    }
+
+    /* FOTO TETAP MUNCUL */
+    .sidebar.collapsed .nav-item.text-center img {
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* SEMBUNYIKAN NAMA & ROLE SAJA */
     .sidebar.collapsed .nav-item.text-center div {
         display: none;
     }
 
-    .sidebar.collapsed .nav-item {
-        position: relative;
+    .nav-link.active {
+        border-left: 3px solid #0d6efd;
     }
 
-    .sidebar.collapsed .nav-item:hover::after {
-        content: attr(data-title);
+    /* ================= DROPDOWN ALAT ================= */
+
+    .sidebar.collapsed #alatMenu {
         position: absolute;
         left: 70px;
-        background: #000;
-        color: #fff;
-        padding: 4px 8px;
-        border-radius: 5px;
-        font-size: 11px;
-        white-space: nowrap;
+        top: 0;
+        background: #fff;
+        border-radius: 6px;
+        padding: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+        display: none;
     }
 
-    .menu-card:hover {
+    .sidebar.collapsed .nav-item:hover #alatMenu {
+        display: block;
+    }
+
+    /* HOVER MENU */
+    .nav-link:hover {
         background: #f5f7f9;
+        border-radius: 6px;
+    }
+
+    if (window.innerWidth < 768) {
+        document.getElementById("sidebar").classList.add("collapsed");
     }
 </style>
 
