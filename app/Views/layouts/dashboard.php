@@ -14,15 +14,6 @@
 
         <!-- Card Menu -->
         <div class="col-md-4">
-            <a href="<?= base_url('/') ?>" class="text-decoration-none">
-                <div class="p-3 border rounded-3 text-center menu-card">
-                    <div class="mb-2 fs-4">🏠</div>
-                    <div class="fw-semibold">Dashboard</div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-4">
             <a href="<?= base_url('/alat') ?>" class="text-decoration-none">
                 <div class="p-3 border rounded-3 text-center menu-card">
                     <div class="mb-2 fs-4">📦</div>
