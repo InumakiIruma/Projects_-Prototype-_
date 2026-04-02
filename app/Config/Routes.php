@@ -33,3 +33,6 @@ $routes->get('/users', 'Users::index', $allRole); // menampilkan data user
 $routes->get('/users/edit/(:num)', 'Users::edit/$1', $allRole); // form edit user
 $routes->post('/users/update/(:num)', 'Users::update/$1', $allRole); // aksi update user
 $routes->get('/users/delete/(:num)', 'Users::delete/$1', $allRole); // aksi hapus user
+
+//Menu alat
+$routes->get('/alat', 'Alat::index'); // aksi ke menu alat
