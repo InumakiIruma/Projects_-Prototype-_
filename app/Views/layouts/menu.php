@@ -112,7 +112,7 @@
         position: absolute;
         left: 70px;
         top: 0;
-        background: #fff;
+        background: #ffffff;
         border-radius: 6px;
         padding: 5px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
@@ -125,7 +125,7 @@
 
     /* HOVER MENU */
     .nav-link:hover {
-        background: #f5f7f9;
+        background: #ffffff;
         border-radius: 6px;
     }
 
