@@ -37,4 +37,10 @@ $routes->group('', ['filter' => 'auth'], function ($routes) use ($allRole) {
     $routes->get('/alat/tambah', 'Alat::tambah', ['filter' => 'role:admin']);
     $routes->get('/alat/peminjaman', 'Alat::peminjaman');
     $routes->get('/alat/laporan', 'Alat::laporan');
+    $routes->post('/alat/simpan', 'Alat::simpan');
+    $routes->get('/alat/data', 'Alat::data');
+    $routes->post('/alat/simpan', 'Alat::simpan');
+    $routes->get('/alat/edit/(:num)', 'Alat::edit/$1');
+    $routes->post('/alat/update/(:num)', 'Alat::update/$1');
+    $routes->get('/alat/delete/(:num)', 'Alat::delete/$1');
 });
