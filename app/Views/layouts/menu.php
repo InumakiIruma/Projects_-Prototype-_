@@ -62,6 +62,10 @@
         gap: 0 !important;
     }
 
+    #alatMenu {
+        transition: 0.2s;
+    }
+
     /* ================= PROFILE ================= */
 
     /* POSISI PROFILE KE KIRI ATAS */
@@ -185,17 +189,27 @@
 
         <!-- ALAT (DROPDOWN) -->
         <li class="nav-item" data-title="Alat">
-            <a class="nav-link d-flex align-items-center gap-2" onclick="toggleMenu('alatMenu')" style="cursor:pointer;">
+
+            <a class="nav-link d-flex align-items-center gap-2"
+                onclick="toggleMenu('alatMenu')" style="cursor:pointer;">
                 <i class="bi bi-box"></i>
                 <span>Alat</span>
             </a>
 
             <div id="alatMenu" class="ms-4 d-none">
+
                 <a href="<?= base_url('/alat/data') ?>" class="nav-link">Data</a>
-                <a href="<?= base_url('/alat/tambah') ?>" class="nav-link">Tambah</a>
+
+                <?php if (session('role') == 'admin'): ?>
+                    <a href="<?= base_url('/alat/tambah') ?>" class="nav-link">Tambah</a>
+                <?php endif; ?>
+
                 <a href="<?= base_url('/alat/peminjaman') ?>" class="nav-link">Peminjaman</a>
                 <a href="<?= base_url('/alat/laporan') ?>" class="nav-link">Laporan</a>
+
             </div>
+
+
         </li>
 
         <!-- USERS -->
