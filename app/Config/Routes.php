@@ -48,4 +48,21 @@ $routes->group('', ['filter' => 'auth'], function ($routes) use ($allRole) {
     $routes->get('/pinjam/(:num)', 'Peminjaman::form/$1');
     $routes->post('/pinjam/simpan', 'Peminjaman::simpan');
     $routes->post('/pinjam', 'Alat::pinjam');
+
+    // ================ NOTIFIKASI ==================
+    $routes->get('/notif', 'Alat::notif');
+    $routes->get('/notif/count', 'Alat::notifCount');
+    $routes->post('/notif/read', 'Alat::notifRead');
+    $routes->post('/pinjam', 'Alat::pinjam');
+
+    // ============= PENGEMBALIAN =================
+    $routes->post('/pinjam', 'Alat::pinjam');
+    $routes->get('/alat/laporan', 'Alat::laporan');
+    $routes->get('/alat/kembalikan/(:num)', 'Alat::kembalikan/$1');
+    $routes->get('/notif', 'Alat::notif');
+    $routes->get('/notif/count', 'Alat::notifCount');
+    $routes->post('/notif/read', 'Alat::notifRead');
+    $routes->get('/alat/pengembalian', 'Alat::pengembalian');
+    $routes->get('/alat/pengembalian', 'Alat::pengembalian');
+    $routes->get('/alat/kembalikan/(:num)', 'Alat::kembalikan/$1');
 });

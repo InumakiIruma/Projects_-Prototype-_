@@ -205,8 +205,7 @@
                 <?php endif; ?>
 
                 <a href="<?= base_url('/alat/peminjaman') ?>" class="nav-link">Peminjaman</a>
-                <a href="<?= base_url('/alat/laporan') ?>" class="nav-link">Laporan</a>
-
+                <a href="<?= base_url('/alat/pengembalian') ?>" class="nav-link"></i><span>Pengembalian</span></a>
             </div>
 
 
