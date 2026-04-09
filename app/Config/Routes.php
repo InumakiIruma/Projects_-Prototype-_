@@ -65,4 +65,10 @@ $routes->group('', ['filter' => 'auth'], function ($routes) use ($allRole) {
     $routes->get('/alat/pengembalian', 'Alat::pengembalian');
     $routes->get('/alat/pengembalian', 'Alat::pengembalian');
     $routes->get('/alat/kembalikan/(:num)', 'Alat::kembalikan/$1');
+
+    // ============ FEEDBACK =================
+    // file: app/Config/Routes.php
+    $routes->get('feedback', 'FeedbackController::index');
+    $routes->post('feedback/send', 'FeedbackController::send');
+    $routes->get('admin/feedback', 'FeedbackController::list');
 });

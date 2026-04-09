@@ -206,17 +206,10 @@
 
                 <a href="<?= base_url('/alat/peminjaman') ?>" class="nav-link">Peminjaman</a>
                 <a href="<?= base_url('/alat/pengembalian') ?>" class="nav-link"></i><span>Pengembalian</span></a>
+
             </div>
 
 
-        </li>
-
-        <!-- USERS -->
-        <li class="nav-item" data-title="Users">
-            <a class="nav-link d-flex align-items-center gap-2" href="<?= base_url('/users') ?>">
-                <i class="bi bi-people"></i>
-                <span>Users</span>
-            </a>
         </li>
 
     </ul>
