@@ -43,4 +43,9 @@ $routes->group('', ['filter' => 'auth'], function ($routes) use ($allRole) {
     $routes->get('/alat/edit/(:num)', 'Alat::edit/$1');
     $routes->post('/alat/update/(:num)', 'Alat::update/$1');
     $routes->get('/alat/delete/(:num)', 'Alat::delete/$1');
+
+    // ================ PEMINJAMAN ==================
+    $routes->get('/pinjam/(:num)', 'Peminjaman::form/$1');
+    $routes->post('/pinjam/simpan', 'Peminjaman::simpan');
+    $routes->post('/pinjam', 'Alat::pinjam');
 });

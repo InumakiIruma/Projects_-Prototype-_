@@ -7,9 +7,7 @@
         <h4>Data Alat</h4>
 
         <?php if (session('role') == 'admin'): ?>
-            <a href="<?= base_url('/alat/tambah') ?>" class="btn btn-success btn-sm">
-                + Tambah Alat
-            </a>
+
         <?php endif; ?>
     </div>
 

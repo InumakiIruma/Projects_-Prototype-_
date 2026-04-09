@@ -8,6 +8,7 @@ class Alat extends BaseController
     {
         return view('alat/index');
     }
+
     public function data()
     {
         $db = \Config\Database::connect();
@@ -17,6 +18,7 @@ class Alat extends BaseController
             'alat' => $alat
         ]);
     }
+
     public function tambah()
     {
         return view('alat/tambah');
@@ -31,10 +33,13 @@ class Alat extends BaseController
             'alat' => $alat
         ]);
     }
+
     public function laporan()
     {
         return view('alat/laporan');
     }
+
+    // ================= TAMBAH ALAT =================
     public function simpan()
     {
         $db = \Config\Database::connect();
@@ -46,8 +51,43 @@ class Alat extends BaseController
         ]);
 
         return redirect()->to('/alat/data')
-            ->with('success', 'Data berhasil ditambahkan!');
+            ->with('success', 'Data alat berhasil ditambahkan!');
     }
+
+    // ================= PINJAM ALAT =================
+    public function pinjam()
+    {
+        $db = \Config\Database::connect();
+        $id_alat = $this->request->getPost('id_alat');
+
+        $alat = $db->table('alat')
+            ->where('id_alat', $id_alat)
+            ->get()
+            ->getRowArray();
+
+        // ❌ kalau stok habis
+        if (!$alat || $alat['jumlah'] <= 0) {
+            return redirect()->to('/alat/peminjaman')
+                ->with('error', '❌ Stok alat sudah habis!');
+        }
+
+        // simpan peminjaman
+        $db->table('peminjaman')->insert([
+            'id_alat' => $id_alat,
+            'nama_peminjam' => $this->request->getPost('nama'),
+            'tanggal_pinjam' => date('Y-m-d')
+        ]);
+
+        // kurangi stok (aman)
+        $db->table('alat')
+            ->where('id_alat', $id_alat)
+            ->set('jumlah', 'jumlah-1', false)
+            ->update();
+
+        return redirect()->to('/alat/peminjaman')
+            ->with('success', '✅ Berhasil meminjam alat!');
+    }
+
     public function edit($id)
     {
         $db = \Config\Database::connect();
@@ -57,6 +97,7 @@ class Alat extends BaseController
             'alat' => $alat
         ]);
     }
+
     public function update($id)
     {
         $db = \Config\Database::connect();
@@ -70,6 +111,7 @@ class Alat extends BaseController
         return redirect()->to('/alat/data')
             ->with('success', 'Data berhasil diupdate!');
     }
+
     public function delete($id)
     {
         $db = \Config\Database::connect();
